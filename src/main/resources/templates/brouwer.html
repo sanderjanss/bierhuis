@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title='genre')"></head>
+<body>
+<nav th:replace="fragments::menu"></nav>
+
+<h1 th:if="${brouwer} == null">Brouwer niet gevonden:
+    <span th:text="${id}"></span>
+</h1>
+
+<div th:if="${brouwer} != null" th:object="${brouwer}">
+    <h1 th:text="*{naam}"></h1>
+    <ul style="list-style-type:none;">
+        <li th:each="bier:${bierenPerBrouwer}" th:object="${bier}">
+            <a th:href="@{/bieren/{id}(id=*{id})}"><span th:text="*{naam}"></span></a>
+        </li>
+
+    </ul>
+</div>
+</body>
+</html>

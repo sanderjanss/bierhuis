@@ -1,0 +1,1 @@
+insert into brouwers(id, naam, straat, huisNr, postcode, gemeente, omzet) values(0, 'test', 'test', '1', '1111', 'wilrijk', 0);

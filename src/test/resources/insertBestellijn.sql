@@ -1,0 +1,1 @@
+insert into bestelbonlijnen(bestelbonid, bierid, aantal, prijs) values(1, 0, 0, 0);

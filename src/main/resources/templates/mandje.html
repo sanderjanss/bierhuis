@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title='Mandje')"></head>
+<body>
+<nav th:replace="fragments::menu"></nav>
+<form th:object="${bestelbon}" th:action="@{/mandje/toevoegen}"
+      method="post">
+    <ul th:if="${winkelmand} != null">
+        <h1>Bieren in mandje:</h1>
+        <table>
+        <tr>
+            <th>Bier</th>
+            <th>Prijs</th>
+            <th>Aantal</th>
+            <th>Te betalen</th>
+        </tr>
+        </table>
+        <table th:each="mand:${winkelmand}">
+
+            <tr>
+                <td th:text="${mand.key.getNaam()}"></td>
+                <td th:text="${mand.key.getPrijs()}"></td>
+                <td th:text="${mand.value}"></td>
+                <td th:text="${mand.value} * ${mand.key.getPrijs()}"></td>
+            </tr>
+
+        </table>
+
+    </ul>
+    <label>Naam <span th:errors="*{naam}"></span><input th:field="*{naam}" autofocus type="text" required></label>
+    <label>Straat <span th:errors="*{straat}"></span><input th:field="*{straat}" type="text" required></label>
+    <label>Huisnummer <span th:errors="*{huisNr}"></span><input th:field="*{huisNr}" type="text" required></label>
+    <label>Postcode <span th:errors="*{postcode}"></span><input th:field="*{postcode}" type="text" required></label>
+    <label>Gemeente <span th:errors="*{gemeente}"></span><input th:field="*{gemeente}" type="text" required></label>
+    <input type="hidden" name="id" value="0"/>
+    <input type="submit" value="Als bestelbon bevestigen">
+
+</form>
+
+<script th:src="@{/js/preventDoubleSubmit.js}"></script>
+</body>
+
+</html>
+

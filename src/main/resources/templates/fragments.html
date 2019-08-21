@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head th:fragment="head(title)" xmlns:th="http://www.thymeleaf.org">
+    <link rel="icon" th:href="@{/img/bierhuis.ico}" type="image/x-icon">
+    <title th:text="${title}"></title>
+    <link rel="stylesheet" th:href="@{/css/bier.css}">
+</head>
+<body>
+<nav th:fragment="menu" xmlns:th='http://www.thymeleaf.org'>
+    <ul>
+        <li><a th:href="@{/}">Welkom</a></li>
+        <li><a th:href="@{/brouwers}">Brouwers</a></li>
+        <li  th:if="${mandje.isGevuld()} == true"><a th:href="@{/mandje}">Mandje</a></li>
+    </ul>
+</nav>
+
+</body>
+</html>

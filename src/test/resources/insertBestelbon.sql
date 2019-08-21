@@ -1,0 +1,1 @@
+insert into bestelbonnen(naam, straat, huisNr, postcode, gemeente) values('test', 'test', '1', 1111, 'wilrijk');

@@ -1,0 +1,12 @@
+<!doctype html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments::head(title='Welkom')"></head>
+<body>
+<nav th:replace="fragments::menu"></nav>
+
+<p>Je winkelwagentje is bevestigd als bestelbon <span th:text="${param.bestelbon}"></span></p>
+
+<script th:src="@{/js/preventDoubleSubmit.js}"></script>
+</body>
+
+</html>
